@@ -47,6 +47,10 @@
     justify-content: center;
 }
 
+.button-search:hover {
+    background-color: #000000f3;
+}
+
 .user {
     display: flex;
     align-items: center;
@@ -62,4 +66,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.user-icon:hover {
+    background-color: #000000f3;
 }
