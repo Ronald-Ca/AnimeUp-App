@@ -5,7 +5,7 @@ export default function Login() {
         <>
             <div className="container">
                 <div className="card-login">
-                    <img src="../../src/images/logo/a-fire.png" alt="logo" width={80} height={80} />
+                    <img src="./src/images/logo/a-fire.png" alt="logo" width={80} height={80} />
                     <h3>Member Login</h3>
                     <form>
                         <input type="text" placeholder="User, Nickname or Email..." />
