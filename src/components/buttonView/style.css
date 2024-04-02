@@ -1,0 +1,14 @@
+.button-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: small;
+    font-weight: initial;
+    border: 1px solid #f8cf2bf3;
+}
+
+.button-view:hover {
+    border: 1px solid #fff;
+}
