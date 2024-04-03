@@ -5,8 +5,6 @@
 
 .card-glass {
     display: flex;
-    width: 140px;
-    height: 220px;
     box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
     background: rgba(255, 255, 255, 0.1);
@@ -21,6 +19,6 @@
 }
 
 .card-glass:hover {
-    transform: scale(1.05);
+    transform: scale(1.01);
     box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.7);
 }

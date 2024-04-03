@@ -1,32 +1,19 @@
 .best-animes {
     display: flex;
-    flex-direction: column;
     padding: 0 20px 20px 20px;
     background-color: rgb(43, 42, 42);
 }
 
-.best-animes hr {
-    border: 0;
-    height: 1px;
-    background-color: #f8cf2bf3;
-    margin: 5px 0 10px 0;
+.colum-left {
+    width: 85%;
 }
 
-.content-title {
-    display: flex;
-    margin: 10px 0 0 0;
-    justify-content: space-between;
+.colum-right {
+    width: 15%;
+    padding: 20px 0 0 15px;
+    margin: 0;
 }
 
-.title {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.markup {
-    width: 5px;
-    height: 20px;
-    background-color: #f8cf2bf3;
-    border-radius: 2px;
+.colum-right p {
+    margin: 0 0 10px 0;
 }

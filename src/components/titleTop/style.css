@@ -1,0 +1,18 @@
+.title {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.content-title {
+    display: flex;
+    margin: 10px 0 0 0;
+    justify-content: space-between;
+}
+
+.markup {
+    width: 5px;
+    height: 20px;
+    background-color: #f8cf2bf3;
+    border-radius: 2px;
+}

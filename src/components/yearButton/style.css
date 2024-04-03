@@ -1,0 +1,21 @@
+.content-year {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.content-year a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    background-color: #131212;
+    transition: all 0.3s;
+}
+
+.content-year a:hover {
+    background-color: #f8cf2bf3;
+    color: #131212;
+}
