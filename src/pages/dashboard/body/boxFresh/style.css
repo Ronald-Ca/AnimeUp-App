@@ -1,4 +1,4 @@
-.body-animes {
+.best-animes {
     display: flex;
     padding: 0 20px 20px 20px;
     background-color: rgb(43, 42, 42);
@@ -12,4 +12,8 @@
     width: 15%;
     padding: 20px 0 0 15px;
     margin: 0;
+}
+
+.colum-right p {
+    margin: 0 0 10px 0;
 }

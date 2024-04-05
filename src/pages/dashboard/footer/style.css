@@ -1,0 +1,21 @@
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0 20px;
+    background-color: #131212;
+    height: 60px;
+}
+
+footer p {
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+}
+
+.contact {
+    display: flex;
+    gap: 10px;
+}
