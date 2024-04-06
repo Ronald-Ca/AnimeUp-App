@@ -20,9 +20,9 @@ export default function Header() {
                 </div>
                 <div className="user">
                     <p>Login</p>
-                    <div className="user-icon">
+                    <a href="/login" className="user-icon">
                         <FaUserNinja color="#f8cf2bf3" size={20} />
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>

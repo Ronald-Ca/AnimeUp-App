@@ -11,7 +11,9 @@ export default function Login() {
                         <input type="text" placeholder="User, Nickname or Email..." />
                         <input type="password" placeholder="Password" />
                     </form>
-                    <ButtonEffect text="Login" width='150px' height='40px' />
+                    <a href="/config">
+                        <ButtonEffect text="Login" width='150px' height='40px' />
+                    </a>
                 </div>
             </div>
         </>
