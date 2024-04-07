@@ -5,9 +5,10 @@ interface ButtonEffectProps {
     width?: string;
     height?: string;
     color?: string;
+    onClick?: () => void;
 }
 
-export default function ButtonEffect({ text, width = "auto", height = "100px" }: ButtonEffectProps) {
+export default function ButtonEffect({ text, width = "auto", height = "100px", onClick }: ButtonEffectProps) {
     return (
         <div className="box">
             <button
@@ -19,6 +20,7 @@ export default function ButtonEffect({ text, width = "auto", height = "100px" }:
                     boxShadow: '0 0 10px 0 #ffcc00',
                     position: 'relative',
                 }}
+                onClick={onClick}
             >
                 {text}
                 <div className="aura"></div>

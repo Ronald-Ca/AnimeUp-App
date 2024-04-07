@@ -6,25 +6,43 @@ import { BiSolidCategoryAlt } from "react-icons/bi";
 import { CgGhostCharacter } from "react-icons/cg";
 import { LuLogOut } from "react-icons/lu";
 import { CiEdit } from "react-icons/ci";
+import Home from "./home";
+import { useState } from "react";
+import Building from "../building";
 export default function Configuration() {
+    const [selectedMenu, setSelectedMenu] = useState<string | null>(null)
+
+    const handleMenu = (menu: JSX.Element) => {
+        return (
+            <div className="content-config">
+                {menu}
+            </div>
+        )
+    }
+
     return (
         <div className="page-config">
             <div className="header-config">
                 <h2>< CiEdit />Editor Mode</h2>
-                <a href="">Logout<LuLogOut /></a>
+                <a href="/">Logout<LuLogOut /></a>
             </div>
             <div className="config">
                 <div className="menu-config">
-                    <a href="">< FaHome /> Home</a>
-                    <a href="">< FaAddressCard /> Anime</a>
-                    <a href="">< IoIosInformationCircle /> About</a>
-                    <a href="">< BiSolidCategoryAlt /> Category</a>
-                    <a href="">< CgGhostCharacter /> Character</a>
+                    <a onClick={() => setSelectedMenu('home')}>< FaHome size={20} /> Home</a>
+                    <a onClick={() => setSelectedMenu('anime')}>< FaAddressCard /> Anime</a>
+                    <a onClick={() => setSelectedMenu('about')}>< IoIosInformationCircle /> About</a>
+                    <a onClick={() => setSelectedMenu('category')}>< BiSolidCategoryAlt /> Category</a>
+                    <a onClick={() => setSelectedMenu('character')}>< CgGhostCharacter /> Character</a>
                 </div>
-                <div className="content-config">
-                    <h1>Configuration</h1>
-                    <p>Here you can configure your site</p>
-                </div>
+                {selectedMenu && handleMenu(
+                    selectedMenu === 'home' ? <Home /> :
+                        selectedMenu === 'anime' ? <Building /> :
+                            selectedMenu === 'about' ? <Building /> :
+                                selectedMenu === 'category' ? <Building /> :
+                                    selectedMenu === 'character' ? <Building /> :
+                                        <></>
+                )}
+
             </div>
 
         </div >

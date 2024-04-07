@@ -15,8 +15,11 @@
 
 a {
   font-weight: 500;
+  font-size: 18px;
   color: #fff;
   text-decoration: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 a:hover {
