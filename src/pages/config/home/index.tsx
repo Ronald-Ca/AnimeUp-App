@@ -20,12 +20,18 @@ export default function Home() {
                 <Input label="Trailer" id="trailer" name="trailer" type="text" placeholder="Url Video anime" />
                 <Input label="Opinion" id="opinion" name="opinion" type="text" placeholder="Opinion anime" />
             </form>
-            <form>
+            <div className="title-config">
+                <h3>Opening</h3>
+            </div>
+            <form className="grid-anime">
                 <Input label="Title Opening" id="title" name="title" type="text" placeholder="Name opening" />
                 <Input label="audio" id="audio" name="audio" type="text" placeholder="Url audio opening" />
                 <Input label="video" id="video" name="video" type="text" placeholder="Url video opening" />
             </form>
-            <form>
+            <div className="title-config">
+                <h3>Season</h3>
+            </div>
+            <form className="grid-anime">
                 <Input label="Name Season" id="name" name="name" type="text" placeholder="Name season" />
                 <Input label="Description" id="description" name="description" type="text" placeholder="Description season" />
                 <Input label="Year" id="year" name="year" type="number" />
