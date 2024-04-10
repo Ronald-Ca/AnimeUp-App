@@ -49,7 +49,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    width: 100%;
+    width: 92%;
     transition: all 0.5s;
     padding: 10px 0 10px 20px;
     cursor: pointer;
@@ -63,7 +63,33 @@
 .content-config {
     background-color: #1a1a1a;
     color: #fff;
-    width: calc(100% - 250px);
+    width: calc(100% - 40px);
     padding: 20px;
     overflow-y: auto;
+}
+
+.grid-anime {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #e1e1e1;
+    border-radius: 2px;
+}
+
+.title-config {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-config button {
+    border: 1px solid #e1e1e1;
+    height: 40px;
+    transition: all 0.5s;
+}
+
+.title-config button:hover {
+    background-color: #fff;
+    color: #131212;
 }

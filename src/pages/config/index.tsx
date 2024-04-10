@@ -6,9 +6,13 @@ import { BiSolidCategoryAlt } from "react-icons/bi";
 import { CgGhostCharacter } from "react-icons/cg";
 import { LuLogOut } from "react-icons/lu";
 import { CiEdit } from "react-icons/ci";
-import Home from "./home";
+import { FaBookOpen } from "react-icons/fa";
+import { SiOpenjdk } from "react-icons/si";
 import { useState } from "react";
 import Building from "../building";
+import Anime from "./anime";
+import Season from "./season";
+import Opening from "./opening";
 export default function Configuration() {
     const [selectedMenu, setSelectedMenu] = useState<string | null>(null)
 
@@ -30,17 +34,21 @@ export default function Configuration() {
                 <div className="menu-config">
                     <a onClick={() => setSelectedMenu('home')}>< FaHome size={20} /> Home</a>
                     <a onClick={() => setSelectedMenu('anime')}>< FaAddressCard /> Anime</a>
+                    <a onClick={() => setSelectedMenu('season')}>< FaBookOpen /> Season</a>
+                    <a onClick={() => setSelectedMenu('opening')}>< SiOpenjdk /> Opening</a>
                     <a onClick={() => setSelectedMenu('about')}>< IoIosInformationCircle /> About</a>
                     <a onClick={() => setSelectedMenu('category')}>< BiSolidCategoryAlt /> Category</a>
                     <a onClick={() => setSelectedMenu('character')}>< CgGhostCharacter /> Character</a>
                 </div>
                 {selectedMenu && handleMenu(
-                    selectedMenu === 'home' ? <Home /> :
-                        selectedMenu === 'anime' ? <Building /> :
-                            selectedMenu === 'about' ? <Building /> :
-                                selectedMenu === 'category' ? <Building /> :
-                                    selectedMenu === 'character' ? <Building /> :
-                                        <></>
+                    selectedMenu === 'home' ? <Building /> :
+                        selectedMenu === 'anime' ? <Anime /> :
+                            selectedMenu === 'season' ? <Season /> :
+                                selectedMenu === 'opening' ? <Opening /> :
+                                    selectedMenu === 'about' ? <Building /> :
+                                        selectedMenu === 'category' ? <Building /> :
+                                            selectedMenu === 'character' ? <Building /> :
+                                                <></>
                 )}
 
             </div>
