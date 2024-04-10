@@ -1,23 +1,47 @@
+import { useState } from "react";
 import Input from "../../../components/inputComponent";
+import { useCreateAnimeMutation } from "../../../queries/anime";
 
 export default function Anime() {
+    const animeMutation = useCreateAnimeMutation()
+
+    const [title, setTitle] = useState('')
+    const [description, setDescription] = useState('')
+    const [image, setImage] = useState('')
+    const [episodes, setEpisodes] = useState(0)
+    const [year, setYear] = useState(0)
+    const [rating, setRating] = useState(0)
+    const [publicRating, setPublicRating] = useState(0)
+    const [status, setStatus] = useState('')
+    const [trailer, setTrailer] = useState('')
+    const [opinion, setOpinion] = useState('')
+
+    const handleSave = async () => {
+        try {
+            await animeMutation.mutateAsync({ title, description, image, episodes: Number(episodes), year, rating, publicRating, status, trailer, opinion })
+            alert('Anime saved!')
+        } catch (error) {
+            alert('Error to save anime!')
+        }
+    }
+
     return (
         <div className="content-config">
             <div className="title-config">
                 <h3>Anime</h3>
-                <button>Save</button>
+                <button onClick={handleSave}>Save</button>
             </div>
             <form className="grid-anime">
-                <Input label="Title Anime" id="title" name="title" type="text" placeholder="Name anime" />
-                <Input label="Description" id="description" name="description" type="text" placeholder="Description anime" />
-                <Input label="Image" id="image" name="image" type="text" placeholder="Url Image anime" />
-                <Input label="Episodes" id="episodes" name="episodes" type="number" />
-                <Input label="Year" id="year" name="year" type="number" />
-                <Input label="Rating" id="rating" name="rating" type="number" />
-                <Input label="Public Rating" id="publicRating" name="publicRating" type="number" />
-                <Input label="Status" id="status" name="status" type="text" />
-                <Input label="Trailer" id="trailer" name="trailer" type="text" placeholder="Url Video anime" />
-                <Input label="Opinion" id="opinion" name="opinion" type="text" placeholder="Opinion anime" />
+                <Input label="Title Anime" id="title" name="title" type="text" placeholder="Name anime" onChange={(e) => setTitle(e.target.value)} />
+                <Input label="Description" id="description" name="description" type="text" placeholder="Description anime" onChange={(e) => setDescription(e.target.value)} />
+                <Input label="Image" id="image" name="image" type="text" placeholder="Url Image anime" onChange={(e) => setImage(e.target.value)} />
+                <Input label="Episodes" id="episodes" name="episodes" type="number" onChange={(e) => setEpisodes(Number(e.target.value))} />
+                <Input label="Year" id="year" name="year" type="number" onChange={(e) => setYear(+e.target.value)} />
+                <Input label="Rating" id="rating" name="rating" type="number" onChange={(e) => setRating(+e.target.value)} />
+                <Input label="Public Rating" id="publicRating" name="publicRating" type="number" onChange={(e) => setPublicRating(+e.target.value)} />
+                <Input label="Status" id="status" name="status" type="text" onChange={(e) => setStatus(e.target.value)} />
+                <Input label="Trailer" id="trailer" name="trailer" type="text" placeholder="Url Video anime" onChange={(e) => setTrailer(e.target.value)} />
+                <Input label="Opinion" id="opinion" name="opinion" type="text" placeholder="Opinion anime" onChange={(e) => setOpinion(e.target.value)} />
             </form>
         </div>
     );
