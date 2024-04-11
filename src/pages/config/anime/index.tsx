@@ -1,9 +1,14 @@
 import { useState } from "react";
 import Input from "../../../components/inputComponent";
 import { useCreateAnimeMutation } from "../../../queries/anime";
+import AlertComponent, { AlertType } from "../../../components/alertComponent";
 
 export default function Anime() {
     const animeMutation = useCreateAnimeMutation()
+
+    const [alertMessage, setAlertMessage] = useState('')
+    const [alertType, setAlertType] = useState<AlertType>(null)
+    const [showAlert, setShowAlert] = useState(false)
 
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
@@ -19,9 +24,13 @@ export default function Anime() {
     const handleSave = async () => {
         try {
             await animeMutation.mutateAsync({ title, description, image, episodes: Number(episodes), year, rating, publicRating, status, trailer, opinion })
-            alert('Anime saved!')
+            setAlertMessage('Anime created successfully')
+            setAlertType('success')
+            setShowAlert(true)
         } catch (error) {
-            alert('Error to save anime!')
+            setAlertMessage('Failed to create anime')
+            setAlertType('danger')
+            setShowAlert(true)
         }
     }
 
@@ -43,6 +52,7 @@ export default function Anime() {
                 <Input label="Trailer" id="trailer" name="trailer" type="text" placeholder="Url Video anime" onChange={(e) => setTrailer(e.target.value)} />
                 <Input label="Opinion" id="opinion" name="opinion" type="text" placeholder="Opinion anime" onChange={(e) => setOpinion(e.target.value)} />
             </form>
+            <AlertComponent message={alertMessage} type={alertType} show={showAlert} setShow={setShowAlert} />
         </div>
     );
 }
