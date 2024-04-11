@@ -6,6 +6,16 @@
     border-radius: 5px;
 }
 
+.alert a {
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.alert a:hover {
+    text-decoration: underline;
+    color: black;
+}
+
 .alert-success {
     background-color: #4CAF50;
 }
@@ -23,9 +33,17 @@
 }
 
 .show {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .hide {
     display: none;
+}
+
+.fixed-top-right {
+    position: fixed;
+    top: 20px;
+    right: 20px;
 }

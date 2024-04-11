@@ -23,16 +23,32 @@ export default function Anime() {
 
     const handleSave = async () => {
         try {
-            await animeMutation.mutateAsync({ title, description, image, episodes: Number(episodes), year, rating, publicRating, status, trailer, opinion })
-            setAlertMessage('Anime created successfully')
-            setAlertType('success')
-            setShowAlert(true)
+            const requiredFields = ['title', 'description', 'image', 'episodes', 'year', 'rating']
+            const emptyFields = requiredFields.filter(field => {
+                if (field === 'episodes' || field === 'year' || field === 'rating') {
+                    return !Number(eval(field))
+                } else {
+                    return !eval(field)
+                }
+            })
+
+            if (emptyFields.length === 0) {
+                await animeMutation.mutateAsync({ title, description, image, episodes: Number(episodes), year, rating, publicRating, status, trailer, opinion })
+                setAlertMessage('Anime created successfully')
+                setAlertType('success')
+                setShowAlert(true)
+            } else {
+                setAlertMessage(`Fields ${emptyFields.join(', ')} are required`)
+                setAlertType('danger')
+                setShowAlert(true)
+            }
         } catch (error) {
             setAlertMessage('Failed to create anime')
             setAlertType('danger')
             setShowAlert(true)
         }
     }
+
 
     return (
         <div className="content-config">
@@ -41,12 +57,12 @@ export default function Anime() {
                 <button onClick={handleSave}>Save</button>
             </div>
             <form className="grid-anime">
-                <Input label="Title Anime" id="title" name="title" type="text" placeholder="Name anime" onChange={(e) => setTitle(e.target.value)} />
-                <Input label="Description" id="description" name="description" type="text" placeholder="Description anime" onChange={(e) => setDescription(e.target.value)} />
-                <Input label="Image" id="image" name="image" type="text" placeholder="Url Image anime" onChange={(e) => setImage(e.target.value)} />
-                <Input label="Episodes" id="episodes" name="episodes" type="number" onChange={(e) => setEpisodes(Number(e.target.value))} />
-                <Input label="Year" id="year" name="year" type="number" onChange={(e) => setYear(+e.target.value)} />
-                <Input label="Rating" id="rating" name="rating" type="number" onChange={(e) => setRating(+e.target.value)} />
+                <Input label="Title Anime" id="title" name="title" type="text" placeholder="Name anime" onChange={(e) => setTitle(e.target.value)} required />
+                <Input label="Description" id="description" name="description" type="text" placeholder="Description anime" onChange={(e) => setDescription(e.target.value)} required />
+                <Input label="Image" id="image" name="image" type="text" placeholder="Url Image anime" onChange={(e) => setImage(e.target.value)} required />
+                <Input label="Episodes" id="episodes" name="episodes" type="number" onChange={(e) => setEpisodes(Number(e.target.value))} required />
+                <Input label="Year" id="year" name="year" type="number" onChange={(e) => setYear(+e.target.value)} required />
+                <Input label="Rating" id="rating" name="rating" type="number" onChange={(e) => setRating(+e.target.value)} required />
                 <Input label="Public Rating" id="publicRating" name="publicRating" type="number" onChange={(e) => setPublicRating(+e.target.value)} />
                 <Input label="Status" id="status" name="status" type="text" onChange={(e) => setStatus(e.target.value)} />
                 <Input label="Trailer" id="trailer" name="trailer" type="text" placeholder="Url Video anime" onChange={(e) => setTrailer(e.target.value)} />
@@ -54,5 +70,5 @@ export default function Anime() {
             </form>
             <AlertComponent message={alertMessage} type={alertType} show={showAlert} setShow={setShowAlert} />
         </div>
-    );
+    )
 }
