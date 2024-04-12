@@ -24,7 +24,7 @@ export default function AlertComponent({ message, type, show, setShow }: AlertPr
         let timer: ReturnType<typeof setTimeout>
         if (show) {
             timer = setTimeout(() => {
-                handleClose();
+                handleClose()
             }, 5000)
         }
         return () => clearTimeout(timer)

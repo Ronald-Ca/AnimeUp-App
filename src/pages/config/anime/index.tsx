@@ -2,6 +2,7 @@ import { useState } from "react";
 import Input from "../../../components/inputComponent";
 import { useCreateAnimeMutation } from "../../../queries/anime";
 import AlertComponent, { AlertType } from "../../../components/alertComponent";
+import Radio from "../../../components/radioComponent";
 
 export default function Anime() {
     const animeMutation = useCreateAnimeMutation()
@@ -68,6 +69,7 @@ export default function Anime() {
                 <Input label="Trailer" id="trailer" name="trailer" type="text" placeholder="Url Video anime" onChange={(e) => setTrailer(e.target.value)} />
                 <Input label="Opinion" id="opinion" name="opinion" type="text" placeholder="Opinion anime" onChange={(e) => setOpinion(e.target.value)} />
             </form>
+
             <AlertComponent message={alertMessage} type={alertType} show={showAlert} setShow={setShowAlert} />
         </div>
     )
