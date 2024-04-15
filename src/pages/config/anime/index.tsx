@@ -2,7 +2,8 @@ import { useState } from "react";
 import Input from "../../../components/inputComponent";
 import { useCreateAnimeMutation } from "../../../queries/anime";
 import AlertComponent, { AlertType } from "../../../components/alertComponent";
-import Radio from "../../../components/radioComponent";
+import Switch from "../../../components/switchComponent";
+import SelectComponent from "../../../components/selectComponent";
 
 export default function Anime() {
     const animeMutation = useCreateAnimeMutation()
@@ -21,6 +22,7 @@ export default function Anime() {
     const [status, setStatus] = useState('')
     const [trailer, setTrailer] = useState('')
     const [opinion, setOpinion] = useState('')
+    const [favorite, setFavorite] = useState(false)
 
     const handleSave = async () => {
         try {
@@ -34,7 +36,7 @@ export default function Anime() {
             })
 
             if (emptyFields.length === 0) {
-                await animeMutation.mutateAsync({ title, description, image, episodes: Number(episodes), year, rating, publicRating, status, trailer, opinion })
+                await animeMutation.mutateAsync({ title, description, image, episodes: Number(episodes), year, rating, publicRating, status, trailer, opinion, favorite })
                 setAlertMessage('Anime created successfully')
                 setAlertType('success')
                 setShowAlert(true)
@@ -65,9 +67,10 @@ export default function Anime() {
                 <Input label="Year" id="year" name="year" type="number" onChange={(e) => setYear(+e.target.value)} required />
                 <Input label="Rating" id="rating" name="rating" type="number" onChange={(e) => setRating(+e.target.value)} required />
                 <Input label="Public Rating" id="publicRating" name="publicRating" type="number" onChange={(e) => setPublicRating(+e.target.value)} />
-                <Input label="Status" id="status" name="status" type="text" onChange={(e) => setStatus(e.target.value)} />
+                <SelectComponent label="Status" placeholder="Choose an option" id="status" name="status" value={status} options={['Watching', 'Completed', 'On Hold', 'Dropped', 'Plan to Watch']} onChange={(e) => setStatus(e)} />
                 <Input label="Trailer" id="trailer" name="trailer" type="text" placeholder="Url Video anime" onChange={(e) => setTrailer(e.target.value)} />
                 <Input label="Opinion" id="opinion" name="opinion" type="text" placeholder="Opinion anime" onChange={(e) => setOpinion(e.target.value)} />
+                <Switch label="Favorite?" value={false} onChange={(e) => setFavorite(e)} />
             </form>
 
             <AlertComponent message={alertMessage} type={alertType} show={showAlert} setShow={setShowAlert} />

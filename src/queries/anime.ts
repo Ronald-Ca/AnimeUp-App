@@ -30,4 +30,5 @@ type Anime = {
     status: string;
     trailer: string;
     opinion: string;
+    favorite: boolean;
 }

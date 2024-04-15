@@ -1,0 +1,40 @@
+.switch-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.switch-component {
+    width: 60px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #ddd;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.switch-component.on {
+    background-color: #f8cf2bf3;
+    /* Amarelo quando está ligado */
+}
+
+.switch-ball {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: left 0.3s;
+}
+
+.switch-component.off .switch-ball {
+    left: 2px;
+    /* Posição inicial (desligado) */
+}
+
+.switch-component.on .switch-ball {
+    left: calc(100% - 28px);
+    /* Posição quando está ligado */
+}

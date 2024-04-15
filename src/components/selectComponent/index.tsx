@@ -1,3 +1,5 @@
+import "./style.css";
+
 type SelectComponentProps = {
     options: string[];
     onChange: (value: string) => void;
