@@ -1,4 +1,6 @@
 import "./style.css"
+import { FaStar } from "react-icons/fa";
+import { GiCursedStar } from "react-icons/gi";
 
 interface Props {
     width?: string;
@@ -17,11 +19,9 @@ export default function CardGlass({ width, height, flexDirection, alignItems, on
         <>
             <div className="card-container" style={{ flexDirection, alignItems }}>
                 <div className="card-glass" style={{ width, height, backgroundImage: `url(${image})`, backgroundSize: 'cover', objectFit: 'cover' }} onClick={onClick}>
-                    <div className="card-glass-content">
-                        <h1>{title}</h1>
-                        <p>{rating}</p>
-                        <p>{publicRating}</p>
-                    </div>
+                    <p className="card-title">{title}</p>
+                    <p className="card-rating"><FaStar style={{ marginTop: '2px' }} size={10} color="yellow" />{rating}</p>
+                    <p className="card-public-rating">{publicRating}<GiCursedStar style={{ marginTop: '3px' }} size={10} color="red" /></p>
                 </div>
             </div>
         </>

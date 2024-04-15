@@ -1,23 +1,30 @@
+import { useEffect } from "react";
 import CardGlass from "../../../../components/cardGlass";
 import Divider from "../../../../components/divider";
 import TitleTop from "../../../../components/titleTop";
 import { useQueryBestAnime } from "../../../../queries/anime";
 import "./style.css";
 export default function BoxBest() {
-    const { data } = useQueryBestAnime();
+    const { data, refetch } = useQueryBestAnime()
+
+    useEffect(() => {
+        refetch()
+    }, [])
 
     return (
         <>
             <div className="">
                 <TitleTop text="Top 10 Animes" />
                 <Divider height="2px" margin="0 0 10px 0 " />
-                {data.data.map((anime: any, index: any) => (
+                {data?.data.map((anime: any, index: any) => (
                     <div key={index}>
                         <CardGlass
-                            width="140px"
+                            width="150px"
                             height="220px"
                             title={anime.title}
                             image={anime.image}
+                            rating={anime.rating}
+                            publicRating={anime.publicRating}
                         />
                     </div>
                 ))}
