@@ -22,7 +22,7 @@ type Anime = {
     id?: number;
     title: string;
     description: string;
-    image: string;
+    image: FileList | null;
     episodes: number;
     year: number;
     rating: number;
@@ -31,4 +31,5 @@ type Anime = {
     trailer: string;
     opinion: string;
     favorite: boolean;
+    following: boolean;
 }
