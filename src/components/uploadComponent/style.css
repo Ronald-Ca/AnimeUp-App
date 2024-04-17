@@ -7,6 +7,25 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    position: relative;
+    /* Adicionando para posição relativa */
+    overflow: hidden;
+    /* Adicionando para cortar a imagem excedente */
+}
+
+.preview {
+    max-width: 100%;
+    /* Limita a largura máxima da imagem ao tamanho do contêiner */
+    max-height: 100%;
+    /* Limita a altura máxima da imagem ao tamanho do contêiner */
+    position: absolute;
+    /* Adicionando para posição absoluta */
+    top: 50%;
+    /* Adicionando para centralizar verticalmente */
+    left: 50%;
+    /* Adicionando para centralizar horizontalmente */
+    transform: translate(-50%, -50%);
+    /* Centralizando a imagem */
 }
 
 .upload-label {
@@ -21,4 +40,8 @@
 
 .upload-input {
     display: none;
+}
+
+.upload-container.drag-over {
+    background-color: #8b8b8b;
 }

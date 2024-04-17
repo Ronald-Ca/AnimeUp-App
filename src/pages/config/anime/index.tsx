@@ -16,18 +16,22 @@ export default function Anime() {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [image, setImage] = useState<FileList | null>(null)
+    const [video, setVideo] = useState<FileList | null>(null)
     const [episodes, setEpisodes] = useState(0)
     const [year, setYear] = useState(0)
     const [rating, setRating] = useState(0)
     const [publicRating, setPublicRating] = useState(0)
     const [status, setStatus] = useState('')
-    const [trailer, setTrailer] = useState('')
     const [opinion, setOpinion] = useState('')
     const [favorite, setFavorite] = useState(false)
     const [following, setFollowing] = useState(false)
 
-    const handleFilesUploaded = (uploadedFiles: FileList) => {
+    const handleImageUploaded = (uploadedFiles: FileList) => {
         setImage(uploadedFiles);
+    }
+
+    const handleVideoUploaded = (uploadedFiles: FileList) => {
+        setVideo(uploadedFiles);
     }
 
     const handleSave = async () => {
@@ -43,7 +47,7 @@ export default function Anime() {
 
             if (emptyFields.length === 0) {
                 await animeMutation.mutateAsync({
-                    title, description, image, episodes: Number(episodes), year, rating, publicRating, status, trailer, opinion, favorite, following
+                    title, description, image, episodes: Number(episodes), year, rating, publicRating, status, trailer: video, opinion, favorite, following
                 })
                 setAlertMessage('Anime created successfully')
                 setAlertType('success')
@@ -75,12 +79,14 @@ export default function Anime() {
                     <Input label="Rating" id="rating" name="rating" type="number" onChange={(e) => setRating(+e.target.value)} required />
                     <Input label="Public Rating" id="publicRating" name="publicRating" type="number" onChange={(e) => setPublicRating(+e.target.value)} />
                     <SelectComponent label="Status" placeholder="Choose an option" id="status" name="status" value={status} options={['Watching', 'Completed', 'On Hold', 'Dropped', 'Plan to Watch']} onChange={(e) => setStatus(e)} />
-                    <Input label="Trailer" id="trailer" name="trailer" type="text" placeholder="Url Video anime" onChange={(e) => setTrailer(e.target.value)} />
                     <Input label="Opinion" id="opinion" name="opinion" type="text" placeholder="Opinion anime" onChange={(e) => setOpinion(e.target.value)} />
                     <Switch label="Favorite?" value={false} onChange={(e) => setFavorite(e)} />
                     <Switch label="Following?" value={false} onChange={(e) => setFollowing(e)} />
                 </div>
-                <UploadComponent label="Upload Image" onFilesUploaded={handleFilesUploaded} />
+                <div className="upload-area">
+                    <UploadComponent label="Upload Image" onFilesUploaded={handleImageUploaded} />
+                    <UploadComponent label="Upload Video" onFilesUploaded={handleVideoUploaded} />
+                </div>
             </div>
             <AlertComponent message={alertMessage} type={alertType} show={showAlert} setShow={setShowAlert} />
         </div>

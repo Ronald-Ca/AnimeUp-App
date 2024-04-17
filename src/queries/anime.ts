@@ -28,7 +28,7 @@ type Anime = {
     rating: number;
     publicRating: number;
     status: string;
-    trailer: string;
+    trailer: FileList | null;
     opinion: string;
     favorite: boolean;
     following: boolean;

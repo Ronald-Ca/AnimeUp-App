@@ -99,3 +99,14 @@
     background-color: #fff;
     color: #131212;
 }
+
+.upload-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 300px;
+    border: 1px dashed #e1e1e1;
+    border-radius: 5px;
+    padding: 20px;
+    cursor: pointer;
+}
