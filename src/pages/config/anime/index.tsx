@@ -84,8 +84,8 @@ export default function Anime() {
                     <Switch label="Following?" value={false} onChange={(e) => setFollowing(e)} />
                 </div>
                 <div className="upload-area">
-                    <UploadComponent label="Upload Image" onFilesUploaded={handleImageUploaded} />
-                    <UploadComponent label="Upload Video" onFilesUploaded={handleVideoUploaded} />
+                    <UploadComponent label="Upload Image" acceptedTypes='/image' onFilesUploaded={handleImageUploaded} />
+                    <UploadComponent label="Upload Video" acceptedTypes='/video' onFilesUploaded={handleVideoUploaded} />
                 </div>
             </div>
             <AlertComponent message={alertMessage} type={alertType} show={showAlert} setShow={setShowAlert} />
