@@ -73,8 +73,8 @@ export default function Anime() {
             </div>
             <div className="flex-anime">
                 <div className="grid-anime">
-                    <Input width="49%" label="Title Anime" id="title" name="title" type="text" placeholder="Name anime" onChange={(e) => setTitle(e.target.value)} required />
-                    <SelectComponent width="49%" label="Status" placeholder="Choose an option" id="status" name="status" value={status} options={['Watching', 'Completed', 'On Hold', 'Dropped', 'Plan to Watch']} onChange={(e) => setStatus(e)} />
+                    <Input width="100%" label="Title Anime" id="title" name="title" type="text" placeholder="Name anime" onChange={(e) => setTitle(e.target.value)} required />
+                    <SelectComponent label="Status" placeholder="Choose an option" id="status" name="status" value={status} options={['Watching', 'Completed', 'On Hold', 'Dropped', 'Plan to Watch']} onChange={(e) => setStatus(e)} />
                     <Input label="Episodes" id="episodes" name="episodes" type="number" placeholder="385" onChange={(e) => setEpisodes(Number(e.target.value))} required />
                     <Input label="Year" id="year" name="year" type="number" placeholder="2010" onChange={(e) => setYear(+e.target.value)} required />
                     <Input label="Rating" id="rating" name="rating" type="number" placeholder="8.1" onChange={(e) => setRating(+e.target.value)} required />
