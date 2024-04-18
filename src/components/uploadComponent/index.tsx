@@ -11,49 +11,55 @@ interface UploadComponentProps {
 }
 
 export default function UploadComponent({ onFilesUploaded, label, acceptedTypes }: UploadComponentProps): JSX.Element {
-    const [isDragging, setIsDragging] = useState(false);
-    const [imagePreview, setImagePreview] = useState<string | null>(null);
-    const [videoPreview, setVideoPreview] = useState<string | null>(null);
+    const [isDragging, setIsDragging] = useState(false)
+    const [imagePreview, setImagePreview] = useState<string | null>(null)
+    const [videoPreview, setVideoPreview] = useState<string | null>(null)
+    const [showAlert, setShowAlert] = useState(false)
+    const [alertMessage, setAlertMessage] = useState('')
 
     function handleDrop(event: React.DragEvent<HTMLDivElement>): void {
-        event.preventDefault();
-        setIsDragging(false);
-        const files = event.dataTransfer.files;
-        handleFiles(files);
+        event.preventDefault()
+        setIsDragging(false)
+        const files = event.dataTransfer.files
+        handleFiles(files)
     }
 
     function handleFiles(files: FileList): void {
-        onFilesUploaded(files);
-        const file = files[0];
+        onFilesUploaded(files)
+        const file = files[0]
+        const imageExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.svg']
+        const videoExtensions = ['.mp4', '.avi', '.mov', '.mkv', '.webm']
+        const extension = file.name.substring(file.name.lastIndexOf('.')).toLowerCase()
 
-        if (!acceptedTypes.includes(file.type)) {
-            <AlertComponent message={'Invalid type'} type={'danger'} show={true} />;
-            return;
-        }
-
-        // Verificar o tipo do arquivo e definir a pré-visualização
-        if (file.type.startsWith('image/')) {
-            setImagePreview(URL.createObjectURL(file));
-            setVideoPreview(null);
-        } else if (file.type.startsWith('video/')) {
-            setVideoPreview(URL.createObjectURL(file));
-            setImagePreview(null);
+        if (file && acceptedTypes === 'image/' && imageExtensions.includes(extension)) {
+            setImagePreview(URL.createObjectURL(file))
+            setVideoPreview(null)
+        } else if (file && acceptedTypes === 'video/' && videoExtensions.includes(extension)) {
+            setVideoPreview(URL.createObjectURL(file))
+            setImagePreview(null)
+        } else {
+            setAlertMessage('Invalid Type')
+            setShowAlert(true)
         }
     }
 
     function handleDragOver(event: React.DragEvent<HTMLDivElement>): void {
-        event.preventDefault();
-        setIsDragging(true);
+        event.preventDefault()
+        setIsDragging(true)
     }
 
     function handleDragLeave(event: React.DragEvent<HTMLDivElement>): void {
-        event.preventDefault();
-        setIsDragging(false);
+        event.preventDefault()
+        setIsDragging(false)
     }
 
     function handleClearPreview(): void {
-        setImagePreview(null);
-        setVideoPreview(null);
+        setImagePreview(null)
+        setVideoPreview(null)
+    }
+
+    function handleAlertClose(): void {
+        setShowAlert(false)
     }
 
     return (
@@ -91,6 +97,7 @@ export default function UploadComponent({ onFilesUploaded, label, acceptedTypes 
                     </>
                 )}
             </div>
+            <AlertComponent message={alertMessage} type={'danger'} show={showAlert} setShow={handleAlertClose} />
         </div>
-    );
+    )
 }

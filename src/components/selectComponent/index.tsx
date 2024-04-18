@@ -9,11 +9,12 @@ type SelectComponentProps = {
     placeholder: string;
     disabled?: boolean;
     name: string;
+    width?: string;
 }
 
-export default function SelectComponent({ options, onChange, value, id, label, placeholder, disabled, name }: SelectComponentProps) {
+export default function SelectComponent({ options, onChange, value, id, label, placeholder, disabled, name, width }: SelectComponentProps) {
     return (
-        <div className="form-group">
+        <div className="form-group" style={{ width }}>
             <label htmlFor={id}>{label}</label>
             <select
                 className="form-control"
