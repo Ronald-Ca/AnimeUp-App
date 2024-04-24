@@ -16,8 +16,8 @@ export default function BoxBest() {
             <div className="">
                 <TitleTop text="Top 10 Animes" />
                 <Divider height="2px" margin="0 0 10px 0 " />
-                {data?.data.map((anime: any, index: any) => (
-                    <div key={index}>
+                <div className="card-best-anime">
+                    {data?.data.map((anime: any) => (
                         <CardGlass
                             width="150px"
                             height="220px"
@@ -26,8 +26,8 @@ export default function BoxBest() {
                             rating={anime.rating}
                             publicRating={anime.publicRating}
                         />
-                    </div>
-                ))}
+                    ))}
+                </div>
                 <Divider color="#8a8888" margin="10px 0 20px 0" />
             </div>
         </>

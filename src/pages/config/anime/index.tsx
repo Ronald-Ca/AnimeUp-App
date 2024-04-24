@@ -28,11 +28,11 @@ export default function Anime() {
     const [following, setFollowing] = useState(false)
 
     const handleImageUploaded = (uploadedFiles: FileList) => {
-        setImage(uploadedFiles);
+        setImage(uploadedFiles.item(0) as any)
     }
 
     const handleVideoUploaded = (uploadedFiles: FileList) => {
-        setVideo(uploadedFiles);
+        setVideo(uploadedFiles)
     }
 
     const handleSave = async () => {
@@ -48,7 +48,7 @@ export default function Anime() {
 
             if (emptyFields.length === 0) {
                 await animeMutation.mutateAsync({
-                    title, description, image, episodes: Number(episodes), year, rating, publicRating, status, trailer: video, opinion, favorite, following
+                    title, description, image, episodes, year, rating, publicRating, status, trailer: video, opinion, favorite, following
                 })
                 setAlertMessage('Anime created successfully')
                 setAlertType('success')
@@ -79,8 +79,8 @@ export default function Anime() {
                     <Input label="Year" id="year" name="year" type="number" placeholder="2010" onChange={(e) => setYear(+e.target.value)} required />
                     <Input label="Rating" id="rating" name="rating" type="number" placeholder="8.1" onChange={(e) => setRating(+e.target.value)} required />
                     <Input label="Public Rating" id="publicRating" name="publicRating" type="number" placeholder="6.5" onChange={(e) => setPublicRating(+e.target.value)} />
-                    <TextArea width="49%" label="Description" id="description" name="description" placeholder="Description anime" onChange={(e) => setDescription(e.target.value)} required />
-                    <TextArea width="49%" label="Opinion" id="opinion" name="opinion" placeholder="Opinion anime" onChange={(e) => setOpinion(e.target.value)} />
+                    <TextArea width="49%" label="Description" id="description" name="description" placeholder="Description anime" onChange={(e) => setDescription(e)} required />
+                    <TextArea width="49%" label="Opinion" id="opinion" name="opinion" placeholder="Opinion anime" onChange={(e) => setOpinion(e)} />
                     <div style={{ display: 'flex', gap: '50%' }}>
                         <Switch label="Favorite?" value={false} onChange={(e) => setFavorite(e)} />
                         <Switch label="Following?" value={false} onChange={(e) => setFollowing(e)} />
