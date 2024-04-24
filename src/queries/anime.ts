@@ -5,7 +5,6 @@ import { useQuery } from 'react-query';
 export const useCreateAnimeMutation = () => {
     return useMutation(
         async (data: Anime) => {
-            console.log(data.image)
             const formData = new FormData()
             formData.append('title', data.title)
             formData.append('description', data.description)
