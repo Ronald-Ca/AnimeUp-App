@@ -32,7 +32,7 @@ export const useQueryBestAnime = () => {
                 "Content-Type": "multipart/form-data"
             }
         });
-        return response.data;
+        return response.data
     })
 }
 
