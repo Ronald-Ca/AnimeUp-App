@@ -12,10 +12,12 @@ export default function ModalBoxBest({ anime }: ModalBoxBestProps) {
             </div>
             <div className="best-modal-header">
                 <img src={anime.image} />
-                <div className="">
-
+                <div className="best-details">
+                    <div className="best-details-title">
+                        <p>Details</p>
+                    </div>
+                    <p>{anime.description}</p>
                 </div>
-                <p>{anime.description}</p>
             </div>
             <p>Rating: {anime.rating}</p>
             <p>Public Rating: {anime.publicRating}</p>

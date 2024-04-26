@@ -16,16 +16,28 @@
 
 .best-modal-header {
     display: flex;
+    justify-content: space-between;
     width: 100%;
 }
 
 .best-modal-header img {
-    width: 250px;
-    height: 350px;
+    width: 200px;
+    height: 300px;
     border-radius: 8px;
 }
 
 .best-modal-image {
     width: 100px !important;
     height: 100px !important;
+}
+
+.best-details {
+    width: 400px;
+}
+
+.best-details-title {
+    text-align: center;
+    margin: 0;
+    padding: 5px;
+    border: 1px solid #fff;
 }
