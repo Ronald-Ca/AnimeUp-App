@@ -16,11 +16,16 @@ export default function ModalBoxBest({ anime }: ModalBoxBestProps) {
                     <div className="best-details-title">
                         <p>Details</p>
                     </div>
+                    <div className="best-details-itens">
+                        <p>Episodes: <span>{anime.episodes}</span></p>
+                        <p>Year: {anime.year}</p>
+                        <p>Rating: {anime.rating}</p>
+                        <p>Public Rating: {anime.publicRating}</p>
+                    </div>
+
                     <p>{anime.description}</p>
                 </div>
             </div>
-            <p>Rating: {anime.rating}</p>
-            <p>Public Rating: {anime.publicRating}</p>
         </div>
     )
 }
