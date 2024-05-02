@@ -16,13 +16,29 @@
 }
 
 .modal-content {
+    border: 1px solid #e72d2d;
     position: relative;
     background-color: #1e111d;
     width: 300px;
-    height: 200px;
+    max-height: calc(100vh - 100px);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    margin: 50px 5px 10px 0;
+    background: #1e111d;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: #e72d2d;
+    border-radius: 5px;
 }
 
 .close {

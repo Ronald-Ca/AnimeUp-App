@@ -1,3 +1,7 @@
+body.modal-open {
+    overflow: hidden;
+}
+
 .best-modal {
     display: flex;
     flex-direction: column;
@@ -93,6 +97,52 @@
 }
 
 .season-item {
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
     border-radius: 5px;
     border: 2px solid #ebebeb;
+    max-width: 200px;
+    height: 100px;
+    cursor: pointer;
+}
+
+.season-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+}
+
+.season-title {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    font-size: 10px;
+    color: #fff;
+}
+
+.season-episodes {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px;
+    font-size: 10px;
+    color: #fff;
+}
+
+.season-year {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px;
+    font-size: 10px;
+    color: #fff;
 }

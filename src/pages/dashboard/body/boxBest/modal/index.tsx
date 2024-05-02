@@ -41,8 +41,10 @@ export default function ModalBoxBest({ anime }: ModalBoxBestProps) {
             <div className="seasons">
                 <h2>Seasons</h2>
                 <div className="seasons-list">
-                    <div className="season-item">
-                        <h3>Title</h3>
+                    <div className="season-item" style={{ backgroundImage: "url(https://i.pinimg.com/564x/91/3e/3f/913e3fbf46a72424e37ff1b82031287d.jpg)" }}>
+                        <p className="season-title">Title</p>
+                        <p className="season-episodes">EP: 230</p>
+                        <p className="season-year">2001</p>
                     </div>
                 </div>
             </div>

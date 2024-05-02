@@ -42,7 +42,7 @@ export default function BoxBest() {
                 </div>
                 <Divider color="#8a8888" margin="10px 0 20px 0" />
             </div>
-            <ModalComponent show={showModal} onClose={() => setShowModal(false)}>
+            <ModalComponent height="700px" show={showModal} onClose={() => setShowModal(false)}>
                 {selectedAnime && <ModalBoxBest anime={selectedAnime} />}
             </ModalComponent>
         </>
