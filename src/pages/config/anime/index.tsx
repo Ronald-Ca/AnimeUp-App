@@ -81,10 +81,10 @@ export default function Anime() {
                     <Input label="Public Rating" id="publicRating" name="publicRating" type="number" placeholder="6.5" onChange={(e) => setPublicRating(+e.target.value)} />
                     <TextArea width="49%" label="Description" id="description" name="description" placeholder="Description anime" onChange={(e) => setDescription(e)} required />
                     <TextArea width="49%" label="Opinion" id="opinion" name="opinion" placeholder="Opinion anime" onChange={(e) => setOpinion(e)} />
-                    <div style={{ display: 'flex', gap: '50%' }}>
-                        <Switch label="Favorite?" value={false} onChange={(e) => setFavorite(e)} />
-                        <Switch label="Following?" value={false} onChange={(e) => setFollowing(e)} />
-                    </div>
+                </div>
+                <div style={{ display: 'flex', gap: '50px', width: "50%" }}>
+                    <Switch label="Favorite?" value={false} onChange={(e) => setFavorite(e)} />
+                    <Switch label="Following?" value={false} onChange={(e) => setFollowing(e)} />
                 </div>
                 <div className="upload-area">
                     <UploadComponent label="Upload Image" acceptedTypes='image/' onFilesUploaded={handleImageUploaded} />
