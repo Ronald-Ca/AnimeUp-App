@@ -74,18 +74,22 @@ export default function Anime() {
             <div className="flex-anime">
                 <div className="grid-anime">
                     <Input width="100%" label="Title Anime" id="title" name="title" type="text" placeholder="Name anime" onChange={(e) => setTitle(e.target.value)} required />
-                    <SelectComponent label="Status" placeholder="Choose an option" id="status" name="status" value={status} options={['Watching', 'Completed', 'On Hold', 'Dropped', 'Plan to Watch']} onChange={(e) => setStatus(e)} />
-                    <Input label="Episodes" id="episodes" name="episodes" type="number" placeholder="385" onChange={(e) => setEpisodes(Number(e.target.value))} required />
-                    <Input label="Year" id="year" name="year" type="number" placeholder="2010" onChange={(e) => setYear(+e.target.value)} required />
-                    <Input label="Rating" id="rating" name="rating" type="number" placeholder="8.1" onChange={(e) => setRating(+e.target.value)} required />
-                    <Input label="Public Rating" id="publicRating" name="publicRating" type="number" placeholder="6.5" onChange={(e) => setPublicRating(+e.target.value)} />
+                    <SelectComponent width="19%" label="Status" placeholder="Choose an option" id="status" name="status" value={status} options={['Watching', 'Completed', 'On Hold', 'Dropped', 'Plan to Watch']} onChange={(e) => setStatus(e)} />
+                    <Input width="18%" label="Episodes" id="episodes" name="episodes" type="number" placeholder="385" onChange={(e) => setEpisodes(Number(e.target.value))} required />
+                    <Input width="18%" label="Year" id="year" name="year" type="number" placeholder="2010" onChange={(e) => setYear(+e.target.value)} required />
+                    <Input width="18%" label="Rating" id="rating" name="rating" type="number" placeholder="8.1" onChange={(e) => setRating(+e.target.value)} required />
+                    <Input width="18%" label="Public Rating" id="publicRating" name="publicRating" type="number" placeholder="6.5" onChange={(e) => setPublicRating(+e.target.value)} />
+                </div>
+                <div style={{ display: 'flex', gap: '50px' }}>
                     <TextArea width="49%" label="Description" id="description" name="description" placeholder="Description anime" onChange={(e) => setDescription(e)} required />
                     <TextArea width="49%" label="Opinion" id="opinion" name="opinion" placeholder="Opinion anime" onChange={(e) => setOpinion(e)} />
                 </div>
+
                 <div style={{ display: 'flex', gap: '50px', width: "50%" }}>
                     <Switch label="Favorite?" value={false} onChange={(e) => setFavorite(e)} />
                     <Switch label="Following?" value={false} onChange={(e) => setFollowing(e)} />
                 </div>
+
                 <div className="upload-area">
                     <UploadComponent label="Upload Image" acceptedTypes='image/' onFilesUploaded={handleImageUploaded} />
                     <UploadComponent label="Upload Video" acceptedTypes='video/' onFilesUploaded={handleVideoUploaded} />
