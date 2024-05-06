@@ -3,6 +3,7 @@ import Input from "../../../components/inputComponent";
 import SelectComponent from "../../../components/selectComponent";
 import TextArea from "../../../components/textaArea";
 import UploadComponent from "../../../components/uploadComponent";
+import { useQueryAnime } from "../../../queries/anime";
 
 export default function Season() {
     const [anime, setAnime] = useState('')
@@ -14,6 +15,9 @@ export default function Season() {
     const [year, setYear] = useState(0)
     const [rating, setRating] = useState(0)
     const [publicRating, setPublicRating] = useState(0)
+
+    const { data, refetch } = useQueryAnime()
+    console.log('data', data)
 
     const handleImageUploaded = (uploadedFiles: FileList) => {
         setImage(uploadedFiles.item(0) as any)

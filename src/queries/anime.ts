@@ -1,6 +1,9 @@
 import { useMutation } from 'react-query';
 import axios from 'axios';
 import { useQuery } from 'react-query';
+import AnimeService from '../services/animes';
+
+const anime = new AnimeService()
 
 export const useCreateAnimeMutation = () => {
     return useMutation(
@@ -34,6 +37,10 @@ export const useQueryBestAnime = () => {
         });
         return response.data
     })
+}
+
+export const useQueryAnime = () => {
+    return useQuery('anime', () => anime.getAnimes())
 }
 
 type Anime = {
