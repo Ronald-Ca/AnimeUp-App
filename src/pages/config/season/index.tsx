@@ -31,7 +31,7 @@ export default function Season() {
             </div>
             <div className="flex-anime">
                 <div className="grid-anime">
-                    <SelectComponent width="49%" label="Status" placeholder="Choose an anime" id="status" name="status" value={status} options={[]} onChange={(e) => setAnime(e)} />
+                    <SelectComponent width="49%" label="Status" placeholder="Choose an anime" id="status" name="status" value={anime} options={[anime]} onChange={(e) => setAnime(e)} />
                     <Input width="49%" label="Name Season" id="name" name="name" type="text" placeholder="Name season" />
                     <SelectComponent width="19%" label="Status" placeholder="Choose an option" id="status" name="status" value={status} options={['Watching', 'Completed', 'On Hold', 'Dropped', 'Plan to Watch']} onChange={(e) => setStatus(e)} />
                     <Input width="18%" label="Episodes" id="episodes" name="episodes" type="number" placeholder="385" onChange={(e) => setEpisodes(Number(e.target.value))} required />
